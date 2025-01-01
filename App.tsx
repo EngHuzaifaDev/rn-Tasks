@@ -12,10 +12,11 @@ import {PaperProvider} from 'react-native-paper';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import RootScreen from './src/RootScreen';
 import {NavigationContainer} from '@react-navigation/native';
-// import { SafeAreaView } from 'react-native';
-// Define the functional component with React.FC
+import {navigationRef} from './src/navSer'
+
+
+
 const App: React.FC = () => {
-  // useColorScheme returns "light" or "dark"
   const isDarkMode: boolean = useColorScheme() === 'light';
 
   // Define a style object for the background color
@@ -24,7 +25,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef}>
       <SafeAreaView style={[backgroundStyle, {width: '100%', height: '100%'}]}>
         <PaperProvider>
           <StatusBar

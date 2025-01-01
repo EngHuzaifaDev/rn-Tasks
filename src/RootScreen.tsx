@@ -12,17 +12,18 @@ const RootScreen: React.FC = () => {
   const Stack = createNativeStackNavigator<RootStackParamList>();
 
   return (
-    
-      <Stack.Navigator initialRouteName={Screens.names.Home}>
-        {/* Map each screen dynamically */}
-        {Object.keys(Screens.names).map(key => (
-          <Stack.Screen
-            key={key}
-            name={Screens.names[key as keyof typeof Screens.names]}
-            component={Screens.screens[key as keyof typeof Screens.screens]}
-          />
-        ))}
-      </Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{headerShown: false}}
+      initialRouteName={Screens.names.Home}>
+      {/* Map each screen dynamically */}
+      {Object.keys(Screens.names).map(key => (
+        <Stack.Screen
+          key={key}
+          name={Screens.names[key as keyof typeof Screens.names]}
+          component={Screens.screens[key as keyof typeof Screens.screens]}
+        />
+      ))}
+    </Stack.Navigator>
   );
 };
 
