@@ -13,15 +13,16 @@ const Display: React.FC<DisplayProps> = ({value, style}) => {
     <View
       style={[
         {
-          height: '35%',
+          height: '25%',
           padding: 16,
           borderColor: 'black',
           borderWidth: 1,
           borderRadius: 15,
+          marginBottom:45
         },
         style,
       ]}>
-      <Text>{value}</Text>
+      <Text style={{fontSize:45}}>{value}</Text>
     </View>
   );
 };

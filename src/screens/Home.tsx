@@ -6,7 +6,7 @@ import {useState} from 'react';
 
 const Home: React.FC = () => {
   const [value, setValue] = useState<string>("");
-
+  
   return (
     <View>
       <Display value={value} />

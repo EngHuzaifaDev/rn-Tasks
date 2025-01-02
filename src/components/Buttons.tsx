@@ -67,15 +67,15 @@ const Buttons: React.FC<ButtonsProps> = ({ setVal }) => {
   return (
     <View style={{ display: 'flex', justifyContent: 'space-between', height: '50%' }}>
       <View>
-        <Button onPress={() => handleNumberPress("1")}>1</Button>
-        <Button onPress={() => handleNumberPress("2")}>2</Button>
-        <Button onPress={() => handleNumberPress("3")}>3</Button>
+        <Button style = {{margin:5, width:'50%', borderRadius:5, backgroundColor:'white'}} onPress={() => handleNumberPress("1")}>1</Button>
+        <Button style = {{margin:5, width:'50%', borderRadius:5, backgroundColor:'white'}} onPress={() => handleNumberPress("2")}>2</Button>
+        <Button style = {{margin:5, width:'50%', borderRadius:5, backgroundColor:'white'}} onPress={() => handleNumberPress("3")}>3</Button>
       </View>
       <View>
-        <Button onPress={() => handleActionPress("+")}>+</Button>
-        <Button onPress={() => handleActionPress("-")}>-</Button>
-        <Button onPress={() => handleActionPress("X")}>X</Button>
-        <Button onPress={handleResultPress}>=</Button>
+        <Button style = {{margin:5, width:'50%', borderRadius:5, backgroundColor:'white'}} onPress={() => handleActionPress("+")}>+</Button>
+        <Button style = {{margin:5, width:'50%', borderRadius:5, backgroundColor:'white'}} onPress={() => handleActionPress("-")}>-</Button>
+        <Button style = {{margin:5, width:'50%', borderRadius:5, backgroundColor:'white'}} onPress={() => handleActionPress("X")}>X</Button>
+        <Button style = {{margin:5, width:'50%', borderRadius:5, backgroundColor:'white'}} onPress={handleResultPress}>=</Button>
       </View>
       <View>
         <Button onPress={handleClearPress}>Clear</Button>
