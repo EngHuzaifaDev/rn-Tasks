@@ -1,6 +1,6 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Screens from './screens/namesAndComps.js'; // Assuming `names` and `screens` are exported
+import Screens from './namesAndComps.js'; // Assuming `names` and `screens` are exported
 import {View} from 'react-native';
 
 // Define the types for the navigation stack
