@@ -27,7 +27,7 @@ const App: React.FC = () => {
 
   return (
     <NavigationContainer ref={navigationRef}>
-      <SafeAreaView style={[backgroundStyle, { width: '100%', height: '100%', borderColor:'red', borderWidth:5, padding:15}]}>
+      <SafeAreaView style={[backgroundStyle, { width: '100%', height: '100%',  padding:15}]}>
         <PaperProvider>
           <StatusBar
             barStyle={isDarkMode ? 'light-content' : 'dark-content'}

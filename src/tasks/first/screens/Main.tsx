@@ -10,7 +10,7 @@ const Main: React.FC = () => {
   const [firstValue, setFirstValue] = useState<string>(""); // State for the first value
   const [secondValue, setSecondValue] = useState<string>(""); // State for the second value
   const [action, setAction] = useState<string | null>(null); // State for the selected action
-const [hasError, setHasError]= useState<any>(0)
+  const [hasError, setHasError] = useState<any>(0)
 
   const handleDigitPress = (num: string) => {
     if (action === null) {
@@ -44,7 +44,7 @@ const [hasError, setHasError]= useState<any>(0)
         case "X":
           result = firstNum * secondNum;
           break;
-        case "/":
+        case "÷":
           result = secondNum !== 0 ? firstNum / secondNum : NaN;
           break;
         default:
@@ -65,6 +65,8 @@ const [hasError, setHasError]= useState<any>(0)
     setValue("");
   };
 
+  const handleIgnoreButtons = () => { }
+
   return (
     <View>
       <Display value={value} error={hasError} />
@@ -73,6 +75,7 @@ const [hasError, setHasError]= useState<any>(0)
         handleOperatorPress={handleOperatorPress}
         handleClearPress={handleClearPress}
         handleResultPress={handleResultPress}
+        handleIgnoreButtons={handleIgnoreButtons}
       />
     </View>
   );

@@ -13,10 +13,10 @@ const DigitsAndOperaotors = (props:any) => {
         <TouchableOpacity style={styles.button} onPress={()=>{props.handleClearPress()}}>
           <Text style={styles.buttonText}>C</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={()=>{props.handleOperatorPress('+/-')}}>
+        <TouchableOpacity style={styles.button} onPress={()=>{props.handleIgnoreButtons()}}>
           <Text style={styles.buttonText}>+/-</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={()=>{props.handleOperatorPress('%')}}>
+        <TouchableOpacity style={styles.button} onPress={()=>{props.handleIgnoreButtons()}}>
           <Text style={styles.buttonText}>%</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.button, styles.lastButton]} onPress={()=>{props.handleOperatorPress('÷')}}>
@@ -77,7 +77,7 @@ const DigitsAndOperaotors = (props:any) => {
         <TouchableOpacity style={[styles.button, styles.zeroButton]} onPress={()=>{props.handleDigitPress('0')}}>
           <Text style={styles.buttonText}>0</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={()=>{props.handleDigitPress('.')}}>
+        <TouchableOpacity style={styles.button} onPress={()=>{props.handleIgnoreButtons('.')}}>
           <Text style={styles.buttonText}>.</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.button, styles.lastButton, styles.equalButton]} onPress={()=>{props.handleResultPress()}}>
