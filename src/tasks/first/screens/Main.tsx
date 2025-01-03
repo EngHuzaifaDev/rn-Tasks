@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View } from 'react-native';
 import Display from '../componentws/Display';
 import Contents from '../componentws/utils/operations';  // Assuming this file is in the correct path
-import DigitsAndOperaotors from '../componentws/ButtonsScreen';
+import DigitsAndOperaotors from '../componentws/DigitsAndOperaotors';
 
 
 const Main: React.FC = () => {
@@ -41,7 +41,7 @@ const Main: React.FC = () => {
         case "-":
           result = firstNum - secondNum;
           break;
-        case "X":
+        case "✕":
           result = firstNum * secondNum;
           break;
         case "÷":
@@ -68,7 +68,7 @@ const Main: React.FC = () => {
   const handleIgnoreButtons = () => { }
 
   return (
-    <View>
+    <View style={{ width:'100%', height:'100%', justifyContent:'flex-end', borderColor:'black', borderWidth:4}}>
       <Display value={value} error={hasError} />
       <DigitsAndOperaotors
         handleDigitPress={handleDigitPress}

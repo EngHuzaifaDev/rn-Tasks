@@ -23,15 +23,17 @@ const styles = StyleSheet.create({
   valueContainer: {
     justifyContent: 'center',
     alignItems: 'flex-end',
-    padding: 20,
-    height: 100,
-    backgroundColor: '#f5f5f5',
+    // padding: 20,
+    // height: 100,
+    borderColor:'black',
+    borderWidth:5,
+    backgroundColor: '#ff',
     borderRadius: 10,
     marginBottom: 20,
     width: '100%',
   },
   valueText: {
-    fontSize: 36,
+    fontSize: 56,
     color: 'black',
   },
   errorText: {
