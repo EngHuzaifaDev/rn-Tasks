@@ -4,7 +4,7 @@ import React from 'react'
 const AllTasks: React.FC = () => {
   return (
     <View>
-      <Text>AllTasks</Text>
+      <Text>AllTasks will</Text>
     </View>
   )
 }

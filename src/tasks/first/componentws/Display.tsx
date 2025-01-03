@@ -1,30 +1,42 @@
 import React from 'react';
-import {View, Text, StyleProp, ViewStyle} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
-// Define the props type
-type DisplayProps = {
-  value: string; // Expecting a string value to display
-  style?: StyleProp<ViewStyle>; // Optional style for customization
-};
+interface DisplayProps {
+  value: string;
+  error: boolean;
+}
 
-// Component definition
-const Display: React.FC<DisplayProps> = ({value, style}) => {
+const Display: React.FC<DisplayProps> = ({ value, error }) => {
   return (
-    <View
-      style={[
-        {
-          height: '25%',
-          padding: 16,
-          borderColor: 'black',
-          borderWidth: 1,
-          borderRadius: 15,
-          marginBottom:45
-        },
-        style,
-      ]}>
-      <Text style={{fontSize:45}}>{value}</Text>
+    <View style={styles.valueContainer}>
+      {error ? (
+        <Text style={styles.errorText}>Error</Text>
+      ) : (
+        <Text style={styles.valueText}>{value ? value : '0'}</Text>
+      )}
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  valueContainer: {
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    padding: 20,
+    height: 100,
+    backgroundColor: '#f5f5f5',
+    borderRadius: 10,
+    marginBottom: 20,
+    width: '100%',
+  },
+  valueText: {
+    fontSize: 36,
+    color: 'black',
+  },
+  errorText: {
+    fontSize: 36,
+    color: 'red',
+  },
+});
 
 export default Display;
