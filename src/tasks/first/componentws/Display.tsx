@@ -23,10 +23,7 @@ const styles = StyleSheet.create({
   valueContainer: {
     justifyContent: 'center',
     alignItems: 'flex-end',
-    // padding: 20,
-    // height: 100,
-    borderColor:'black',
-    borderWidth:5,
+   paddingRight:20,
     backgroundColor: '#ff',
     borderRadius: 10,
     marginBottom: 20,

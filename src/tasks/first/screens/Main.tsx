@@ -68,7 +68,7 @@ const Main: React.FC = () => {
   const handleIgnoreButtons = () => { }
 
   return (
-    <View style={{ width:'100%', height:'100%', justifyContent:'flex-end', borderColor:'black', borderWidth:4}}>
+    <View style={{ width:'100%', height:'100%', justifyContent:'flex-end'}}>
       <Display value={value} error={hasError} />
       <DigitsAndOperaotors
         handleDigitPress={handleDigitPress}
