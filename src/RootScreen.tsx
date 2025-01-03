@@ -1,9 +1,6 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Screens from './namesAndComps.js'; // Assuming `names` and `screens` are exported
-import {View} from 'react-native';
-
-// Define the types for the navigation stack
+import Screens from './namesAndComps';
 type RootStackParamList = {
   [key: string]: undefined; // Each route doesn't expect params; adjust if they do.
 };
@@ -14,7 +11,7 @@ const RootScreen: React.FC = () => {
   return (
     <Stack.Navigator
       screenOptions={{headerShown: false}}
-      initialRouteName={Screens.names.Home}>
+      initialRouteName={Screens.names.FirstTask}>
       {/* Map each screen dynamically */}
       {Object.keys(Screens.names).map(key => (
         <Stack.Screen

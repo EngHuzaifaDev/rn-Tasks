@@ -1,13 +1,13 @@
 // services/navigationService.js
 import * as React from 'react';
 import { CommonActions } from '@react-navigation/native';
-export const navigationRef = React.createRef();
+export const navigationRef:any = React.createRef();
 
-function navigate(name, params) {
+function navigate(name: any, params: any) {
   navigationRef.current?.navigate(name, params);
 }
 
-function reset(routeName) {
+function reset(routeName:any) {
   navigationRef.current?.dispatch(
     CommonActions.reset({
       index: 0,

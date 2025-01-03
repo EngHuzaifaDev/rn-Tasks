@@ -6,6 +6,7 @@ interface DisplayProps {
   error: boolean;
 }
 
+
 const Display: React.FC<DisplayProps> = ({ value, error }) => {
   return (
     <View style={styles.valueContainer}>

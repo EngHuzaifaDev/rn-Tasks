@@ -1,15 +1,14 @@
-import Home from './screens/Home.tsx';
-import AllTasks from './root/screens/AllTasks.tsx';
-import FirstTask from './tasks/first/FirstTask.tsx';
+import AllTasks from "./root/screens/AllTasks";
+import FirstTask from "./tasks/first/FirstTask";
+
+
 const Screens = {
   names: {
     AllTasks: 'AllTasks',
-    Home: 'Home',
     FirstTask: 'FirstTask'
   },
   screens: {
     AllTasks: AllTasks,
-    Home: Home,
     FirstTask: FirstTask
   },
 };
