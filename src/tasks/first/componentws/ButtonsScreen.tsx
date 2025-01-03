@@ -10,77 +10,77 @@ const DigitsAndOperaotors = (props:any) => {
     <View style={styles.buttonsContainer}>
       {/* Row 1 of buttons */}
       <View style={styles.buttonRow}>
-        <TouchableOpacity style={styles.button} onPress={()=>{props.handleButtonPress('C')}}>
+        <TouchableOpacity style={styles.button} onPress={()=>{props.handleClearPress()}}>
           <Text style={styles.buttonText}>C</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={()=>{props.handleButtonPress('+/-')}}>
+        <TouchableOpacity style={styles.button} onPress={()=>{props.handleOperatorPress('+/-')}}>
           <Text style={styles.buttonText}>+/-</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={()=>{props.handleButtonPress('%')}}>
+        <TouchableOpacity style={styles.button} onPress={()=>{props.handleOperatorPress('%')}}>
           <Text style={styles.buttonText}>%</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.button, styles.lastButton]} onPress={()=>{props.handleButtonPress('÷')}}>
+        <TouchableOpacity style={[styles.button, styles.lastButton]} onPress={()=>{props.handleOperatorPress('÷')}}>
           <Text style={styles.buttonText}>÷</Text>
         </TouchableOpacity>
       </View>
 
       {/* Row 2 of buttons */}
       <View style={styles.buttonRow}>
-        <TouchableOpacity style={styles.button} onPress={() => {props.handleButtonPress('7')}}>
+        <TouchableOpacity style={styles.button} onPress={() => {props.handleDigitPress('7')}}>
           <Text style={styles.buttonText}>7</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => {props.handleButtonPress('8')}}>
+        <TouchableOpacity style={styles.button} onPress={() => {props.handleDigitPress('8')}}>
           <Text style={styles.buttonText}>8</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => {props.handleButtonPress('9')}}>
+        <TouchableOpacity style={styles.button} onPress={() => {props.handleDigitPress('9')}}>
           <Text style={styles.buttonText}>9</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.button, styles.lastButton]} onPress={() => props.handleButtonPress('✕')}>
+        <TouchableOpacity style={[styles.button, styles.lastButton]} onPress={() => props.handleOperatorPress('✕')}>
           <Text style={styles.buttonText}>✕</Text>
         </TouchableOpacity>
       </View>
 
       {/* Row 3 of buttons */}
       <View style={styles.buttonRow}>
-        <TouchableOpacity style={styles.button} onPress={() => {props.handleButtonPress('4')}}>
+        <TouchableOpacity style={styles.button} onPress={() => {props.handleDigitPress('4')}}>
           <Text style={styles.buttonText}>4</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={()=>{props.handleButtonPress('5')}}>
+        <TouchableOpacity style={styles.button} onPress={()=>{props.handleDigitPress('5')}}>
           <Text style={styles.buttonText}>5</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={()=>{props.handleButtonPress('6')}}>
+        <TouchableOpacity style={styles.button} onPress={()=>{props.handleDigitPress('6')}}>
           <Text style={styles.buttonText}>6</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.button, styles.lastButton]} onPress={()=> {props.handleButtonPress('-')}}>
+        <TouchableOpacity style={[styles.button, styles.lastButton]} onPress={()=> {props.handleOperatorPress('-')}}>
           <Text style={styles.buttonText}>-</Text>
         </TouchableOpacity>
       </View>
 
       {/* Row 4 of buttons */}
       <View style={styles.buttonRow}>
-        <TouchableOpacity style={styles.button} onPress={()=>{props.handleButtonPress('1')}}>
+        <TouchableOpacity style={styles.button} onPress={()=>{props.handleDigitPress('1')}}>
           <Text style={styles.buttonText}>1</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={()=>{props.handleButtonPress('2')}}>
+        <TouchableOpacity style={styles.button} onPress={()=>{props.handleDigitPress('2')}}>
           <Text style={styles.buttonText}>2</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={()=>{props.handleButtonPress('3')}}>
+        <TouchableOpacity style={styles.button} onPress={()=>{props.handleDigitPress('3')}}>
           <Text style={styles.buttonText}>3</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.button, styles.lastButton]} onPress={()=>{props.handleButtonPress('+')}}>
+        <TouchableOpacity style={[styles.button, styles.lastButton]} onPress={()=>{props.handleOperatorPress('+')}}>
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>
 
       {/* Row 5 of buttons */}
       <View style={styles.buttonRow}>
-        <TouchableOpacity style={[styles.button, styles.zeroButton]} onPress={()=>{props.handleButtonPress('0')}}>
+        <TouchableOpacity style={[styles.button, styles.zeroButton]} onPress={()=>{props.handleDigitPress('0')}}>
           <Text style={styles.buttonText}>0</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={()=>{props.handleButtonPress('.')}}>
+        <TouchableOpacity style={styles.button} onPress={()=>{props.handleDigitPress('.')}}>
           <Text style={styles.buttonText}>.</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.button, styles.lastButton, styles.equalButton]} onPress={()=>{props.handleButtonPress('=')}}>
+        <TouchableOpacity style={[styles.button, styles.lastButton, styles.equalButton]} onPress={()=>{props.handleResultPress()}}>
           <Text style={styles.buttonText}>=</Text>
         </TouchableOpacity>
       </View>

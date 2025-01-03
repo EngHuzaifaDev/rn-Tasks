@@ -1,69 +1,79 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import Display from '../componentws/Display';
-import Contents  from '../componentws/utils/operations';  // Assuming this file is in the correct path
+import Contents from '../componentws/utils/operations';  // Assuming this file is in the correct path
 import DigitsAndOperaotors from '../componentws/ButtonsScreen';
 
 
 const Main: React.FC = () => {
   const [value, setValue] = useState<string>("");  // Holds the current string value to display
-  const [firstDigit, setFirstDigit] = useState<number | null>(null);  // First digit for calculation
-  const [secondDigit, setSecondDigit] = useState<number | null>(null); // Second digit for calculation
-  const [operator, setOperator] = useState<string | null>(null);  // Operator for calculation
-  const [hasError, setHasError] = useState<boolean>(false);
+  const [firstValue, setFirstValue] = useState<string>(""); // State for the first value
+  const [secondValue, setSecondValue] = useState<string>(""); // State for the second value
+  const [action, setAction] = useState<string | null>(null); // State for the selected action
+const [hasError, setHasError]= useState<any>(0)
 
-  const handleButtonPress = (input: any) => {
-    if (Contents.Digits.includes(input)) {
-      // If the input is a digit, append it to the value
-      setValue(prev => prev + input);
-    } else if (Contents.Operators.includes(input)) {
-      // If the input is an operator, handle accordingly
-      if (input === "=") {
-        // When "=" is pressed, calculate the result
-        if (firstDigit !== null && secondDigit !== null && operator) {
-          let result: number = 0;
-          switch (operator) {
-            case "+":
-              result = firstDigit + secondDigit;
-              break;
-            case "-":
-              result = firstDigit - secondDigit;
-              break;
-            case "✕":
-              result = firstDigit * secondDigit;
-              break;
-            case "÷":
-              if (secondDigit === 0) {
-                setHasError(true);
-                return;
-              } else {
-                result = firstDigit / secondDigit;
-              }
-              break;
-          }
-          setValue(result.toString());
-          setFirstDigit(result);  // The result becomes the first digit for further calculations
-          setSecondDigit(null);    // Reset second digit after calculation
-          setOperator(null);       // Clear operator after calculation
-        }
-      } else {
-        // If an operator other than "=" is pressed for the first time
-        if (firstDigit === null) {
-          setFirstDigit(Number(value));  // Convert the current string value to a number and store it
-          setValue("");  // Reset value display after storing the first digit
-        } else if (secondDigit === null) {
-          setSecondDigit(Number(value));  // Set the second digit
-          setValue("");  // Reset value display after setting second digit
-        }
-        setOperator(input);  // Set the operator
-      }
+  const handleDigitPress = (num: string) => {
+    if (action === null) {
+      setFirstValue((prev) => prev + num); // Update first value
+    } else {
+      setSecondValue((prev) => prev + num); // Update second value
     }
+    setValue((prev) => prev + num); // Update the display
+  };
+
+  const handleOperatorPress = (operator: string) => {
+    if (firstValue) {
+      setAction(operator); // Set the current action
+      setValue((prev) => prev + ` ${operator} `); // Update the display
+    }
+  };
+
+  const handleResultPress = () => {
+    if (firstValue && secondValue && action) {
+      const firstNum = parseFloat(firstValue);
+      const secondNum = parseFloat(secondValue);
+
+      let result: number;
+      switch (action) {
+        case "+":
+          result = firstNum + secondNum;
+          break;
+        case "-":
+          result = firstNum - secondNum;
+          break;
+        case "X":
+          result = firstNum * secondNum;
+          break;
+        case "/":
+          result = secondNum !== 0 ? firstNum / secondNum : NaN;
+          break;
+        default:
+          result = 0;
+      }
+
+      setValue(result.toString()); // Display the result
+      setFirstValue(result.toString()); // Store the result as the first value for future calculations
+      setSecondValue(""); // Reset the second value
+      setAction(null); // Reset the action
+    }
+  };
+
+  const handleClearPress = () => {
+    setFirstValue("");
+    setSecondValue("");
+    setAction(null);
+    setValue("");
   };
 
   return (
     <View>
       <Display value={value} error={hasError} />
-      <DigitsAndOperaotors handleButtonPress={handleButtonPress} />
+      <DigitsAndOperaotors
+        handleDigitPress={handleDigitPress}
+        handleOperatorPress={handleOperatorPress}
+        handleClearPress={handleClearPress}
+        handleResultPress={handleResultPress}
+      />
     </View>
   );
 };
