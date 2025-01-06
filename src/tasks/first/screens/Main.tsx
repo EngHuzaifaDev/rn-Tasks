@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import Display from '../componentws/Display';
 import DigitsAndOperaotors from '../componentws/DigitsAndOperaotors';
@@ -10,8 +10,12 @@ const Main: React.FC = () => {
   const [action, setAction] = useState<string | null>(null); // State for the selected action
   const [hasError, setHasError] = useState<any>(0);
   const [dotUsed, setDotUsed] = useState(false);
-
-
+  const [opActive, setOpActive] = useState(false);
+  // useEffect(() => {
+  //   if (!dotUsed) {
+  //     if (value.includes('.')) setDotUsed(true)
+  //   }
+  // }, [value])
   const handleDigitPress = (num: string) => {
 
     if (action === null) {
@@ -30,7 +34,8 @@ const Main: React.FC = () => {
   };
 
   const handleOperatorPress = (operator: string) => {
-    if (firstValue) {
+    if (firstValue && !opActive) {
+      setOpActive(true)
       if (dotUsed) setDotUsed(false)
       setAction(operator); // Set the current action
       setValue((prev) => prev + ` ${operator} `); // Update the display
@@ -65,7 +70,15 @@ const Main: React.FC = () => {
       setFirstValue(result.toString()); // Store the result as the first value for future calculations
       setSecondValue(""); // Reset the second value
       setAction(null); // Reset the action
-      setDotUsed(false)
+      // if (!dotUsed) {
+      if (value.includes('.')) {
+        setDotUsed(true)
+      } else {
+        setDotUsed(false)
+      }
+      setOpActive(false)
+      // }
+
     }
   };
 
@@ -75,6 +88,7 @@ const Main: React.FC = () => {
     setAction(null);
     setDotUsed(false)
     setValue("");
+    setOpActive(false)
   };
 
   const handleAmPercentPress = () => {
